@@ -1,0 +1,60 @@
+.main-container-login {
+    width: 100%;
+    height: 100vh;
+    background-color: #12002b;
+
+}
+
+.section-title {
+    margin-top: 20px;
+}
+
+.sign-in-content {
+    box-sizing: border-box;
+    background-color: white;
+    width: 300px;
+    margin: 3rem auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    width: 100%;
+
+}
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin: 1rem 0;
+
+}
+
+.input-wrapper label {
+    font-weight: bold;
+}
+
+input[type=text],input[type=password] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+    font-size: 1.2rem;
+
+}
+
+.remember-me__container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.button-underline {
+    text-decoration: underline;
+}
+
+
