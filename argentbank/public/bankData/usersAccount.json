@@ -1,0 +1,46 @@
+[{
+
+            "id":"65ce43db9783bc22770bd61b",
+
+            "accounts":{
+
+                "account1":{
+                    "accountName": "Checking",
+                    "transactions": 712,
+                    "balance": 928.42
+                },
+                "account2":{
+                    "accountName":"Savings",
+                    "transactions": 6712,
+                    "balance": 10928.42
+                },
+                "accoun3":{
+                    "accountName": "Credit card",
+                    "transactions": 8349,
+                    "balance": 184.3
+                }
+            }
+            },
+
+        {
+            "id": "65ce43db9783bc22770bd61a",
+            "accounts":{
+
+                "account1":{
+                    "accountName": "Checking",
+                    "transactions": 8349,
+                    "balance": 2082.79
+                },
+                "account2":{
+                "accountName":"Savings",
+                "transactions": 6712,
+                "balance": 10928.42
+            },
+            "account3":{
+                "accountName": "Credit card",
+                "transactions": 8349,
+                "balance": 184.3
+            }
+        }
+
+         }]
