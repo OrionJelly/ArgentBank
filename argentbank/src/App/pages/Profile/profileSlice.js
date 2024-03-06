@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { useSelector } from 'react-redux'
-import { selectUserProfileId } from '../../Store/selectors'
+
 
 export const getUserProfile = createAsyncThunk(
     'profile/getUserProfile',
@@ -14,19 +13,42 @@ export const getUserProfile = createAsyncThunk(
                 },
             }
         )
-        const data = await response.json()
-        return data
+        const res = await response.json()
+        return res
     }
 )
 
+// get user account and filter response to retrieve only the account corresponding to the user
 export const getUserAccount = createAsyncThunk(
     'profile/getUserAccount',
     async (userId) => {
         const response = await fetch('bankData/usersAccount.json')
-        const data = await response.json()
-        const filteredByUserId = data.filter((id) => id.id === userId)
-        const dataFilteredByUserId = filteredByUserId[0]
-        return dataFilteredByUserId
+        const res = await response.json()
+        const filteredByUserId = res.filter((id) => id.id === userId)
+        const resFilteredByUserId = filteredByUserId[0]
+        return resFilteredByUserId
+    }
+)
+
+export const changeUserName = createAsyncThunk(
+    'profile/changeUserName',
+    async (data) => {
+        const response = await fetch(
+            'http://localhost:3001/api/v1/user/profile',
+            {
+                method: 'PUT',
+                headers: {
+                    Authorization: 'Bearer ' + data.token,
+                    'content-type': 'application/json',
+                },
+                body: JSON.stringify({
+                    userName: data.userName,
+                }),
+            }
+        )
+
+        const res = await response.json()
+        return res.body
     }
 )
 
@@ -59,6 +81,12 @@ export const profileSlice = createSlice({
             return { ...state, userProfile: action.payload.body }
         })
         builder.addCase(getUserProfile.rejected, (state, action) => {
+            return { ...state }
+        })
+        builder.addCase(changeUserName.fulfilled, (state, action) => {
+            return { ...state, userProfile: action.payload }
+        })
+        builder.addCase(changeUserName.rejected, (state, action) => {
             return { ...state }
         })
     },

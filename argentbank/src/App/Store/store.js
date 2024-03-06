@@ -1,7 +1,9 @@
+// Import redux and store
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { userSlice } from "../pages/Login/userSlice";
 import { profileSlice } from "../pages/Profile/profileSlice";
 
+// Store initiale state
 let state = {
     user: {},
     account: {}

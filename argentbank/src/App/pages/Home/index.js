@@ -1,11 +1,11 @@
+// Import components
 import { Banner } from "../../features/components/Banner";
 import { Feature } from "../../features/components/Feature";
-
+// Import CSS
 import './style.css'
 
-
+// Component
 export const Home = () => {
-
 
     return (
 

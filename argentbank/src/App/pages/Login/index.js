@@ -1,14 +1,21 @@
-import { useState } from 'react'
+// Import react router
 import { useNavigate } from 'react-router-dom'
+//Import react
+import { useState } from 'react'
 
-import { Button } from '../../features/components/Button'
-
-import './style.css'
-import { iconSignIn } from '../../..'
-
+//Import redux and store
 import { useDispatch } from 'react-redux'
 import { loginThunk } from './userSlice'
 import { getUserProfile } from '../Profile/profileSlice'
+// Import components
+import { Input } from '../../features/components/Input/Input'
+import { Button } from '../../features/components/Button'
+// import CCS and fontawesome
+import './style.css'
+import { iconSignIn } from '../../..'
+
+
+//Component
 
 export const Login = () => {
     const navigate = useNavigate()
@@ -16,19 +23,28 @@ export const Login = () => {
 
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
-
+// Object to fetch loginThunk
     const userLogs = {
         email: userName,
         password: password,
     }
+    const [credentialsError, setCredentialsError] = useState('')
+    const clearErrorMsg = () => {
+        setCredentialsError('')
+    }
 
+// Fetch loginThunk and getUserProfile, redirect to /profile or set error message
     const submitLogs = (e) => {
         e.preventDefault()
-        dispatch(loginThunk(userLogs)).then((result) => {
+       dispatch(loginThunk(userLogs)).then((result) => {
             if (result.payload) {
             dispatch(getUserProfile(result.payload))
             navigate('../profile')
-            }
+            } else {
+                setCredentialsError("Please check your credentials")
+                    setTimeout(clearErrorMsg, 2000
+                    )
+       }
         })
     }
     return (
@@ -37,28 +53,29 @@ export const Login = () => {
                 {iconSignIn}
                 <h2 className="section-title">Sign in</h2>
                 <form action="#" method="post" onSubmit={submitLogs}>
-                    <div className="input-wrapper">
-                        <label htmlFor="username">Username</label>
-                        <input
+                    <div className='credentials-error'>
+                    {credentialsError}
+                    </div>
+                        <Input
+                            htmlFor="username"
+                            label="Username"
                             type="text"
                             name="username"
                             id="username"
                             value={userName}
-                            autoComplete='username'
+                            autocomplete="username"
                             onChange={(e) => setUserName(e.target.value)}
-                        ></input>
-                    </div>
-                    <div className="input-wrapper">
-                        <label htmlFor="password">Password</label>
-                        <input
+                        />
+                        <Input
+                            htmlFor="password"
+                            label="Password"
                             type="password"
                             name="password"
                             id="password"
                             value={password}
-                            autoComplete="current-password"
+                            autocomplete="current-password"
                             onChange={(e) => setPassword(e.target.value)}
-                        ></input>
-                    </div>
+                        />
                     <div className="remember-me__container">
                         <input type="checkbox" id="remember-me"></input>
                         <label htmlFor="remember-me">Remember me</label>
