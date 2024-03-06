@@ -1,24 +1,26 @@
+//Import react router
+import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
+// Import react
 import * as React from 'react'
 import ReactDOM from 'react-dom/client'
-import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
-
+// Import redux et store
 import { Provider } from 'react-redux'
 import { store } from './App/Store/store'
-
-import './style.css'
-
-import reportWebVitals from './reportWebVitals'
-
+// Import Layout
 import { Header } from './App/features/components/Header'
 import { Footer } from './App/features/components/Footer'
-
+// Import Pages
 import { Home } from './App/pages/Home'
 import { Login } from './App/pages/Login'
 import { Profile } from './App/pages/Profile'
-
+// Import Fontawesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleUser } from '@fortawesome/free-solid-svg-icons'
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
+// Import CSS
+import './style.css'
+
+import reportWebVitals from './reportWebVitals'
 
 export const iconSignIn = <FontAwesomeIcon icon={faCircleUser} />
 export const iconSignOut = <FontAwesomeIcon icon={faRightFromBracket} />
