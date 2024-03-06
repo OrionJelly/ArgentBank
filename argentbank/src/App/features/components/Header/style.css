@@ -4,15 +4,16 @@ header {
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
-    padding: 0 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
 }
 
 .logo-container {
-    width: 50%;
+    width: auto;
 }
 
 .main-nav-logo-image {
-    width: 100%;
+    width: 200px;
 }
 
 

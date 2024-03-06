@@ -7,3 +7,57 @@
     flex-direction: column;
 
 }
+
+.main-container-home .hero {
+    background-image: url(/public/images/bank-tree_400.webp);
+    background-position: 0 -50px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    height: 300px;
+}
+
+.main-container-home .hero-content {
+    position: relative;
+    top: 2rem;
+    width: 200px;
+    background: white;
+    padding: 2rem;
+    margin: 0 auto;
+}
+
+@media (min-width: 600px) {
+
+   .main-container-home .hero {
+        background-image: url(/public/images/bank-tree_800.webp);
+        height: 400px;
+    }
+}
+
+@media (min-width: 920px) {
+    .main-container-home .hero {
+        background-image: url(/public/images/bank-tree_1250.webp);
+        background-position: 0 -75px;
+    }
+
+    .main-container-home .hero-content {
+        width: 300px;
+        top: 80px;
+        margin-right: 80px;
+}
+
+    .main-container-home .hero-content p {
+        font-size: 1.5rem;
+    }
+
+    .feature-container {
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 1250px) {
+    .main-container-home .hero {
+        background-image: url(/public/images/bank-tree_1650.webp);
+        background-position: 0 -250px;
+    }
+}
