@@ -8,19 +8,19 @@ export const AccountView = ({
     content,
     imageSrc,
     imageAlt,
-
-
 }) => {
-
-
     return (
         <li className="accountView-main-container">
-            <div className="accountView-info">
-            <p>Argent Bank{accountName} (x{transactions})</p>
-            <p className='accountView-amount'>${amount}</p>
-            <p>{content}</p>
-            <Button content="View Transactions"/>
-            </div>
+                <div className="accountView-info">
+                    <p>
+                        Argent Bank{accountName} (x{transactions})
+                    </p>
+                    <p className="accountView-amount">${amount}</p>
+                    <p>{content}</p>
+                </div>
+                <div className='accountView-button'>
+                    <Button content="View Transactions" />
+                </div>
         </li>
     )
 }
